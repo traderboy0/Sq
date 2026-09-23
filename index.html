@@ -2,146 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deepak Wadhwa - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zero To Hero Trading - Learning Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  :root{
+    --bg1:#0b0620;
+    --bg2:#160a2e;
+    --accent1:#ff6a3d;
+    --accent2:#ffd24c;
+    --accent3:#7b2ff7;
+    --text:#f5f1ff;
+    --muted:#b9aed6;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,106,61,0.25), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(123,47,247,0.35), transparent 50%),
+      linear-gradient(160deg, var(--bg1), var(--bg2));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100%;
+    padding:24px 14px;
+    color:var(--text);
   }
 
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+  .card{
+    width:100%;
+    max-width:360px;
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(14px);
+    border:1px solid transparent;
+    background-clip:padding-box;
+    border-radius:28px;
+    padding:28px 22px 22px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 20px 50px rgba(0,0,0,0.45);
   }
 
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:28px;
+    padding:1.5px;
+    background:linear-gradient(135deg, var(--accent1), var(--accent3), var(--accent2));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events:none;
   }
 
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .avatar{
+    width:92px;
+    height:92px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#160a2e;
+    background:linear-gradient(135deg, var(--accent2), var(--accent1));
+    box-shadow:0 0 0 4px rgba(255,255,255,0.08), 0 8px 25px rgba(255,106,61,0.35);
   }
 
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
+  h1{
+    font-size:19px;
+    margin:4px 0 2px;
+    letter-spacing:0.5px;
+    font-weight:700;
   }
 
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
+  .tagline{
+    font-size:11px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:18px;
   }
 
-  .feature-item:last-child { border-bottom: none; }
-
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
+  .features{
+    display:grid;
+    gap:8px;
+    margin-bottom:18px;
   }
 
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
+  .feature-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:14px;
+    padding:10px 12px;
+    font-size:12.5px;
+    color:#e6e0f5;
+    text-align:left;
   }
 
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
+  .feature-item .icon{
+    width:26px;
+    height:26px;
+    flex:0 0 26px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    background:linear-gradient(135deg, var(--accent3), var(--accent1));
   }
 
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
+  .join-text{
+    font-size:12px;
+    color:var(--muted);
+    margin:6px 0 12px;
+    font-weight:300;
   }
 
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
+  .telegram-btn{
+    display:block;
+    background:linear-gradient(90deg, var(--accent1), var(--accent3));
+    color:#fff;
+    text-decoration:none;
+    padding:14px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:15px;
+    margin-bottom:16px;
+    box-shadow:0 10px 25px rgba(123,47,247,0.4);
+    letter-spacing:0.3px;
   }
 
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
+  .hindi-quote{
+    color:#cfc4ea;
+    font-size:12.5px;
+    margin-bottom:18px;
+    line-height:1.5;
+    font-style:italic;
+  }
+
+  .footer-box{
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;
+    padding:9px;
+    font-size:10.5px;
+    color:#8f84ab;
+    background:rgba(255,255,255,0.02);
+  }
+
+  .footer-box a{
+    color:var(--accent2);
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  .disclaimer{
+    font-size:9px;
+    color:#5c5473;
+    margin-top:12px;
+    line-height:1.4;
   }
 </style>
 </head>
 <body>
 
 <div class="card">
-  <img src="https://i.ibb.co/FkV61CBG/711752123-122102238423341553-4586529772719677765-n.jpg" alt="Munaaf" class="profile-img">
+  <div class="avatar">ZH</div>
 
-  <h1>Munaaf</h1>
+  <h1>Zero To Hero Trading</h1>
+  <div class="tagline">Knowledge Hub</div>
 
   <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
+    <div class="feature-item"><span class="icon">🌐</span> Live Classes &amp; Skill-Building Sessions</div>
+    <div class="feature-item"><span class="icon">📊</span> Understanding How Markets Move</div>
+    <div class="feature-item"><span class="icon">💎</span> Reading Charts Step by Step</div>
+    <div class="feature-item"><span class="icon">💻</span> Real Case Studies, Explained Simply</div>
   </div>
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
+  <p class="join-text">Be part of a community built on learning, not shortcuts</p>
 
-  <a href="https://t.me/+VQKcLntbMYhjOGJl" class="telegram-btn">JOIN TELEGRAM</a>
+  <a href="https://t.me/+KmunsNqTavg1ZDg1" class="telegram-btn">JOIN TELEGRAM</a>
 
-  <p class="hindi-quote">     ,     </p>
+  <p class="hindi-quote">जो सीखने का हौसला रखता है, कामयाबी उसी के कदम चूमती है।</p>
 
   <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
+    Promoted By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
   </div>
 
   <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook� or endorsed by Facebook�.
+    Terms &amp; Conditions | Privacy Policy | Disclaimer <br>
+    Not affiliated with or endorsed by Facebook™.
   </div>
 </div>
 
